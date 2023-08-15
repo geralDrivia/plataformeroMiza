@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://xiab0wbctlue"]
+
+[ext_resource type="Texture2D" uid="uid://bei7x67psb4c4" path="res://Assets_PixelAdventure/Main Characters/Mask Dude.png" id="1_7dmow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ub6w"]
+size = Vector2(20, 22)
+
+[sub_resource type="Animation" id="Animation_n64cr"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n7cjc"]
+_data = {
+"idle": SubResource("Animation_n64cr")
+}
+
+[node name="player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+texture = ExtResource("1_7dmow")
+hframes = 11
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_3ub6w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n7cjc")
+}
